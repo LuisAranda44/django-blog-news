@@ -121,3 +121,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Add our project's ignore files
+.idea/
+proyectonoticias/
