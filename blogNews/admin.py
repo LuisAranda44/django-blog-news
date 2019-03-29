@@ -1,10 +1,17 @@
 from django.contrib import admin
 from .models import New
-from django.contrib.auth.models import User
-from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
-admin.site.register(New)
+
+admin.site.site_header="Initial Project";
+admin.site.site_title="Initial Project";
+
+class NewAdmin(admin.ModelAdmin):
+    list_display = ['title','subtitle','published_date']
+    pass
+admin.site.register(New,NewAdmin)
+
+"""
 admin.site.unregister(User)
 
 class MyUserAdmin(UserAdmin):
@@ -16,3 +23,4 @@ class MyUserAdmin(UserAdmin):
     )
 
 admin.site.register(User, MyUserAdmin)
+"""
