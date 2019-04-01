@@ -1,17 +1,25 @@
-<html>
-    <head>
-        <title>Initial Project</title>
-    </head>
-    <body>
-       <div>
-           <h1><a href = "/" > Initial Project </a></h1>
-       </div>
-       {% for new in news %}
-       <div>
-           <p> publicado: {{ new.published_date }} </p>
-           <h1><a href = "" >{{ new.title }} </a></h1>
-           <p>{{ new.subtitle }} </p>
-       </div>
-       {% endfor %}
-    </body>
-</html>
+{% extends 'blogNews/base.html'%}
+
+{% block content %}
+<table>
+            <thead>
+                <tr>
+                   <th>Title</th>
+                   <th>Subtitle</th>
+                   <th>Published_Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for new in news %}
+                    <tr>
+                        <td><a href = "{% url 'new_detail' pk=new.pk %}" >{{ new.title }} </a></td>
+                        <td>{{ new.subtitle }}</td>
+                        <td>publicado: {{ new.published_date }}</td>
+                    </tr>
+                {% endfor %}
+               <!--<p> publicado: {{ new.published_date }} </p>
+               <h1><a href = "" >{{ new.title }} </a></h1>
+               <p>{{ new.subtitle }} </p>-->
+            </tbody>
+       </table>
+{% endblock %}

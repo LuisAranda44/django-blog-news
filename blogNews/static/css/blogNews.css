@@ -1,0 +1,25 @@
+.page-header {
+    background-color: #417690;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+body {
+    padding-left: 15px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.boton{
+    float:left
+}
