@@ -6,7 +6,6 @@
                 <tr>
                    <th>Title</th>
                    <th>Subtitle</th>
-                   <th>Published_Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,7 +13,6 @@
                     <tr>
                         <td><a href = "{% url 'new_detail' pk=new.pk %}" >{{ new.title }} </a></td>
                         <td>{{ new.subtitle }}</td>
-                        <td>publicado: {{ new.published_date }}</td>
                     </tr>
                 {% endfor %}
                <!--<p> publicado: {{ new.published_date }} </p>

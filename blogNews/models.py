@@ -1,7 +1,5 @@
-from django.contrib import admin
-from django.db import models
 
-from django.utils import timezone
+from django.db import models
 
 # Create your models here.
 class BaseItems(models.Model):
@@ -16,9 +14,12 @@ class BaseItems(models.Model):
 
 class New(BaseItems):
     published_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='news',blank="False",default="/home/laranda/Descargas/coche.jpeg")
+    image = models.ImageField(upload_to='news', blank="True", default="coche.jpeg")
+
+
 
 
     # def publish(self):
     #     self.published_date = timezone.now()
     #     self.save()
+
