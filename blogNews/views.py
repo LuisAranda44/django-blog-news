@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from .models import New
 from .forms import NewForm
 
+import os
 
 # Create your views here.
 #Function Based Views
@@ -52,7 +53,7 @@ class NewList(ListView):
     context_object_name = 'news'
 
 class NewDetail(DetailView):
-    #model = New
+    model = New
     template_name= 'blogNews/new_detail_class.html'
     queryset = New.objects.all()
 
@@ -60,16 +61,19 @@ class NewCreate(CreateView):
     model = New
     form_class = NewForm
     template_name= 'blogNews/new_edit_class.html'
-    success_url = reverse_lazy('new_list_class')
+
+    def get_success_url(self):
+        return reverse_lazy('new_detail_class', args=(self.object.pk,))
 
 class NewUpdate(UpdateView):
     model = New
     form_class = NewForm
     template_name = 'blogNews/new_edit_class.html'
-    success_url = reverse_lazy('new_list_class')
 
+    def get_success_url(self):
+        return reverse_lazy('new_detail_class', args=(self.object.pk,))
 
 class NewDelete(DeleteView):
     model = New
-    template_name = 'blogNews/new_delete.html'
+    template_name = 'blogNews/new_delete_class.html'
     success_url = reverse_lazy('new_list_class')

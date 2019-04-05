@@ -1,5 +1,6 @@
-
+import os
 from django.db import models
+from django.dispatch import receiver
 
 # Create your models here.
 class BaseItems(models.Model):
@@ -14,9 +15,18 @@ class BaseItems(models.Model):
 
 class New(BaseItems):
     published_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='news', blank="True", default="coche.jpeg")
+    image = models.ImageField(upload_to='news', blank="True", default="descarga.jpg")
 
+def _delete_file(path):
+    """ Deletes file from filesystem. """
+    if os.path.isfile(path):
+            os.remove(path)
 
+@receiver(models.signals.post_delete, sender=New)
+def delete_file(sender, instance, *args, **kwargs):
+    """ Deletes image files on `post_delete` """
+    if instance.image:
+        _delete_file(instance.image.path)
 
 
     # def publish(self):
