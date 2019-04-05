@@ -1,0 +1,14 @@
+{% extends 'blogNews/base.html' %}
+
+{% block content %}
+    <h1>New</h1>
+
+    <form method="POST" class="new-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!--{{ form.as_p }}-->
+        <h3>Are you sure that you want to delete the register of {{ new.title }}?</h3>
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a class="btn btn-default" href="{% url 'new_list' %}">Cancel</a>
+    </form>
+
+{% endblock %}

@@ -12,10 +12,10 @@
             <tbody>
                 {% for new in news %}
                     <tr>
-                        <td><a href = "{% url 'new_detail' pk=new.pk %}" >{{ new.title }} </a></td>
+                        <td><a href = "{% url 'new_detail_class' pk=new.pk %}" >{{ new.title }} </a></td>
                         <td>{{ new.subtitle }}</td>
                         <td>
-                            <a class="btn btn-primary" href="{% url 'new_edit' pk=new.pk %}">Edit</a>
+                            <a class="btn btn-primary" href="{% url 'new_edit_class' pk=new.pk %}">Edit</a>
                             <a class="btn btn-danger" href="{% url 'new_delete' pk=new.pk %}">Delete</a>
                         </td>
                     </tr>
