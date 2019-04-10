@@ -1,3 +1,30 @@
-h1 a {
-    color: #FCA205;
+.container {
+    background-color: #417690;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    width:100%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.new-form{
+    padding-left: 15px;
+}
+
+#formTitle{
+    padding-left:15px;
 }

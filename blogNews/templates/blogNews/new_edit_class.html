@@ -1,7 +1,7 @@
 {% extends 'blogNews/base.html' %}
 
 {% block content %}
-    <h1>New</h1>
+    <h1 id="formTitle">New</h1>
 
     <form method="POST" class="new-form" enctype="multipart/form-data">
         {% csrf_token %}
